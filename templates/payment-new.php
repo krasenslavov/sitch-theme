@@ -20,7 +20,7 @@ get_header( 'payment-new' );
 			<p class="text-center">
 				<span>
 					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/step-circle-1.webp" alt="Sitch step" />
-					You meet people you really want.
+					You meet people you <strong>really</strong> want.
 				</span>
 				We show you the best people first, because we want you to use setups. No paywall or roses.
 			</p>
@@ -28,7 +28,7 @@ get_header( 'payment-new' );
 			<p class="text-center">
 				<span>
 					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/step-circle-2.webp" alt="Sitch step" />
-					You don't waste time swiping.
+					You don't <strong>waste time</strong> swiping.
 				</span>
 				We show you 3-5 curated profiles a week, instead of 80-100 profiles a day.
 			</p>
@@ -36,7 +36,7 @@ get_header( 'payment-new' );
 			<p class="text-center">
 				<span>
 					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/step-star-3.webp" alt="Sitch step" />
-					And, you don't get ghosted.
+					And, you don't get <strong>ghosted</strong>.
 				</span>
 				Because you both said yes to being introduced (and paid for it), you actually go on the date.
 			</p>
@@ -70,48 +70,40 @@ get_header( 'payment-new' );
 			<div class="group-chat-img">
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/group-chat-2.webp" class="img-fluid" alt="Sitch group chat" />
 			</div>
-			<div class="group-chat-heading">
-				<h2>
-					If we don't have a match,<br />
-					we will go find your person.<br />
-					<span>Seriously.</span>
-				</h2>
-			</div>
 		</section>
 	</main>
 
 	<main class="why-sitch-outer">
 		<section id="why-sitch" class="why-sitch">
 			<div class="container">
-				<h2 class="text-center">
-					<em>You can trust us.</em>
-				</h2>
+				<div class="group-chat-outer">
+					<div class="group-chat-heading">
+						<h2>
+							If we don't have a match,<br />
+							we will go find your person.<br />
+							<span>Seriously.</span>
+						</h2>
+					</div>
+				</div>
 
 				<div class="card-group">
 					<div class="ws-card">
 						<p>
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/why-sitch-thumb-1.webp" alt="Dini Mullaji" />
-						</p>
-						<p>
 							<a href="https://www.linkedin.com/in/nandini-mullaji/" target="_blank" class="custom-text-new">Dini
-								Mullaji</a> is the the fun, Stanford MBA version of Sima Aunty from Indian Matchmaking. She loves love
-							-
-							she has set up 100s of people (and 3 marriages) and has popular substack on dating <a
-								href="https://gurunandinisays.substack.com/" target="_blank" class="custom-text-new">Guru Nandini
-								Says</a>.
-							She has previously built two profitable consumer apps in dating and education, and has a passion for
+								Mullaji</a> is the fun, young, Stanford MBA version of Sima Aunty from Indian Matchmaking. She loves
+							love - she has set up 1000s of people and has a very popular substack on dating <a
+								href="https://gurunandinisays.substack.com/" target="_blank" class="custom-text-new">Guru Nandini</a>
+							Says. She has built two profitable consumer apps in dating and education previously, and has a passion for
 							prompt engineering.
 						</p>
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/why-sitch-thumb-1.webp" alt="Dini Mullaji" />
 					</div>
 					<div class="ws-card">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/why-sitch-thumb-5.webp" alt="Chad DePue" />
 						<p>
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/why-sitch-thumb-5.webp" alt="Chad DePue" />
-						</p>
-						<p>
-							<a href="https://www.linkedin.com/in/depue/" target="_blank" class="custom-text-new">Chad DePue</a> worked
-							at
-							Snapchat, Whisper, Uniswap and Microsoft and loves building social apps. He built a startup in South
-							America and sold it once. He just moved to NYC and actually met his fiancée on a dating app.
+							<a href="https://www.linkedin.com/in/depue/" target="_blank" class="custom-text-new">Chad DePue</a> led
+							teams at Snapchat, Whisper, Uniswap and Microsoft and loves building social apps. He built a startup in
+							South America and sold it once. He just moved to NYC and actually met his fiancée on a dating app.
 						</p>
 					</div>
 				</div>
@@ -337,5 +329,64 @@ get_header( 'payment-new' );
 			</a>
 		</div>
 	</main>
+
+	<script>
+		function getQueryParam(param) {
+			const urlParams = new URLSearchParams(window.location.search);
+			return urlParams.get(param);
+		}
+
+		const env = getQueryParam('env');
+		const isVip = (getQueryParam('vip') === 'true'); // Check if 'vip' parameter is set to 'true'
+
+		console.log("Environment:", env);
+		console.log("Is VIP:", isVip);
+
+		let plusTierValue, regularTierValue;
+
+		if (env === 'beta') {
+			plusTierValue = 'SITCH_SETUP_05_BETA';
+			regularTierValue = 'SITCH_SETUP_03_BETA';
+		} else {
+			plusTierValue = 'SITCH_SETUP_05';
+			regularTierValue = 'SITCH_SETUP_03';
+		}
+
+		const plusTierInput = document.getElementById('membership-tier-plus');
+		const regularTierInput = document.getElementById('membership-tier-regular');
+		const vipBadges = document.querySelectorAll('.membership-pills .custom-badge');
+
+		if (plusTierInput && regularTierInput) {
+			plusTierInput.value = plusTierValue;
+			regularTierInput.value = regularTierValue;
+
+			console.log("Membership Tier Plus Value Set To:", plusTierInput.value);
+			console.log("Membership Tier Regular Value Set To:", regularTierInput.value);
+
+			vipBadges.forEach(badge => {
+				badge.style.display = isVip ? 'inline' : 'none'; // Show or hide each badge
+			});
+		} else {
+			console.error("Membership tier elements not found.");
+		}
+
+		let selectedTier = document.querySelector('input[name="membership-tier"]:checked').value;
+
+		document.querySelectorAll('input[name="membership-tier"]').forEach((radio) => {
+			radio.addEventListener('change', (event) => {
+				selectedTier = event.target.value;
+			});
+		});
+
+		document.getElementById('activate-membership').addEventListener('click', function (event) {
+			event.preventDefault();
+			selectedTier = document.querySelector('input[name="membership-tier"]:checked').value;
+			if (window.InAppPurchase) {
+				window.InAppPurchase.postMessage(selectedTier);
+			} else {
+				console.warn('InAppPurchase JavaScriptChannel is not available.');
+			}
+		});
+	</script>
 <?php
 get_footer();

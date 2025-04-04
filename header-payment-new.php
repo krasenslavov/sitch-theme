@@ -17,28 +17,33 @@
 	<body <?php body_class( get_post_meta( get_the_ID(), 'body_class', true ) ); ?>>
 	<header class="payment-new">
 		<div class="container-fluid">
-			<nav class="navbar navbar-expand-md">
+		<nav class="navbar navbar-expand-md">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar-brand navbar-brand-sitch mx-auto">
 					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/sitch-logo.png" alt="Sitch logo" />
 				</a>
 			</nav>
-
 			<br />
-
 			<div class="hero hero-payment">
 				<div class="container">
-					<h4 class="text-center">
-						This is <strong>NOT</strong> a monthly subscription.
-					</h4>
-					<h4 class="text-center">
-						We want you to &nbsp;<em>actually</em>go on dates.
-					</h4>
 					<h3 class="text-center">
-						It only counts as a setup<br />
-						if you both say yes.
+						You pay <strong>per setup</strong>,<br />
+						not per month
 					</h3>
+					<h4 class="text-center">
+						because we want you to<br />
+						&nbsp;<em>actually</em>go on dates.
+					</h4>
 
 					<ul class="payment-nav">
+						<li>
+							<svg width="24" height="30" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M21 8.7498L9 23.7498L3.5 16.8748L4.91 15.1123L9 20.2123L19.59 6.9873L21 8.7498Z" fill="white">
+								</path>
+							</svg>
+							<span>
+								It only counts as a setup if you both say yes to being introduced.
+							</span>
+						</li>
 						<li>
 							<svg width="24" height="30" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M21 8.7498L9 23.7498L3.5 16.8748L4.91 15.1123L9 20.2123L19.59 6.9873L21 8.7498Z" fill="white">
@@ -69,7 +74,7 @@
 										<h4>
 											3&nbsp;setups
 											<span>
-												<strong>$89.99/mo</strong><br />
+												<strong>$89.99</strong><br />
 												$29.99/Setup
 											</span>
 										</h4>
@@ -85,7 +90,7 @@
 												5&nbsp;setups
 											</em>
 											<span>
-												<strong>$124.99/mo</strong><br />
+												<strong>$124.99</strong><br />
 												$24.99/Setup
 											</span>
 										</h4>
@@ -97,7 +102,7 @@
 										<h4>
 											8&nbsp;setups
 											<span>
-												<strong>$159.99/mo</strong><br />
+												<strong>$159.99</strong><br />
 												$19.99/Setup
 											</span>
 										</h4>
