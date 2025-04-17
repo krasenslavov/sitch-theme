@@ -325,7 +325,7 @@ get_header( 'payment-new' );
 
 		<div class="activate-fixed-container">
 			<a href="#" target="_blank" class="activate-button-new">
-				Activate your membership
+				Become a Member
 			</a>
 		</div>
 	</main>
